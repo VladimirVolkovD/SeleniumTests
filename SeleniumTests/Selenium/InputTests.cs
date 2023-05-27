@@ -11,6 +11,8 @@ namespace SeleniumTests.Selenium
 
             driver.FindElement(By.LinkText("Inputs")).Click();
 
+            WaitHelper.WaitElementWithTitle(driver, By.LinkText("Inputs"), "Demo", 25);
+
             var input = driver.FindElement(By.TagName("input"));
 
             input.SendKeys("A1B2C3D!");
@@ -19,6 +21,8 @@ namespace SeleniumTests.Selenium
             input.SendKeys("48");
             input.SendKeys(Keys.ArrowUp);
             input.SendKeys(Keys.ArrowUp);
+
+         
 
 
             input.SendKeys(Keys.ArrowDown + Keys.ArrowDown + Keys.Enter);
