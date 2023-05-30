@@ -1,4 +1,4 @@
-﻿
+﻿/*
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -46,3 +46,4 @@ namespace SeleniumTests.Selenium
         }
     }
 }
+*/

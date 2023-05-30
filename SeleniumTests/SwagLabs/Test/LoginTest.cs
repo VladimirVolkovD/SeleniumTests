@@ -1,4 +1,5 @@
-﻿using SeleniumTests.SwagLabs.PageObject;
+﻿using SeleniumTests.Core;
+using SeleniumTests.SwagLabs.PageObject;
 
 namespace SeleniumTests.SwagLabs.Test
 {
@@ -8,7 +9,10 @@ namespace SeleniumTests.SwagLabs.Test
         [Test]
         public void Login_StandartUser()
         {
-            var inventoryPage = new LoginPage(driver)
+
+            Browser.Instance.NavigateToUrl("asdasd");
+
+            var inventoryPage = new LoginPage()
                 .OpenPage()
                 .LoginAsStandartUser();
         }
@@ -19,9 +23,10 @@ namespace SeleniumTests.SwagLabs.Test
             var user = new UserModel()
             {
                 Password = "asdasdasd",
+                Name = " ",
             };
 
-            var page = new LoginPage(driver);
+            var page = new LoginPage();
 
             page.OpenPage().TryToLogin(user);
 

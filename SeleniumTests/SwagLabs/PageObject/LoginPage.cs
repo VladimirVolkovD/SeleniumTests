@@ -14,12 +14,8 @@ namespace SeleniumTests.SwagLabs.PageObject
         public const string STANDART_USER_NAME = "standard_user";
         public const string STANDART_USER_PASSWORD = "secret_sauce";
 
-        public LoginPage(WebDriver webDriver) : base(webDriver)
-        {
-        }
-
         public override LoginPage OpenPage()
-        {          
+        {
             driver.Navigate().GoToUrl(url);
             return this;
         }
@@ -35,7 +31,7 @@ namespace SeleniumTests.SwagLabs.PageObject
             TryToLogin(user);
             driver.FindElement(LoginButton).Click();
 
-            return new InventoryPage(driver);
+            return new InventoryPage();
         }
 
         public void TryToLogin(UserModel user)

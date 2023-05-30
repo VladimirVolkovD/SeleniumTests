@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SeleniumTests.Core;
 
 namespace SeleniumTests.Selenium
 {
@@ -7,10 +8,10 @@ namespace SeleniumTests.Selenium
         [Test]
         public void CheckBoxes()
         {
-            driver.FindElement(By.LinkText("Checkboxes")).Click();
+            Browser.Instance.Driver.FindElement(By.LinkText("Checkboxes")).Click();
 
 
-            List<IWebElement> checkBoxes = driver.FindElements(By.TagName("input")).ToList();
+            List<IWebElement> checkBoxes = Browser.Instance.Driver.FindElements(By.TagName("input")).ToList();
             Assert.IsNotEmpty(checkBoxes);
 
             var checkBoxOne = checkBoxes[0];

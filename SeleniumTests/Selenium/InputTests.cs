@@ -1,5 +1,6 @@
 ﻿
 using OpenQA.Selenium;
+using SeleniumTests.Core;
 
 namespace SeleniumTests.Selenium
 {
@@ -9,10 +10,10 @@ namespace SeleniumTests.Selenium
         public void EnterNumbers()
         {
 
-            driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/upload");
+            Browser.Instance.Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/upload");
            
 
-            var input = driver.FindElement(By.Id("file-submit"));
+            var input = Browser.Instance.Driver.FindElement(By.Id("file-submit"));
 
             input.SendKeys("A1B2C3D!");
             input.Clear();

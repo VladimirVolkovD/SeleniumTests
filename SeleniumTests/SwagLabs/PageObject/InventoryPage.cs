@@ -5,7 +5,6 @@ namespace SeleniumTests.SwagLabs.PageObject
     internal class InventoryPage : BasePage
     {
 
-
         //public LeftMenu LeftMenu;
 
         private By ShoppingCartLink = By.ClassName("shopping_cart_link");
@@ -13,7 +12,7 @@ namespace SeleniumTests.SwagLabs.PageObject
 
         public const string url = "https://www.saucedemo.com/inventory.html";
 
-        public InventoryPage(WebDriver webDriver) : base(webDriver)
+        public InventoryPage()
         {
             WaitHelper.WaitElement(driver, ShoppingCartLink);
             // LeftMenu = new LefMenu(driver);

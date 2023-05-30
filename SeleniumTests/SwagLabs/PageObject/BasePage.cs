@@ -1,14 +1,15 @@
 ﻿using OpenQA.Selenium;
+using SeleniumTests.Core;
 
 namespace SeleniumTests.SwagLabs.PageObject
 {
     internal abstract class BasePage
     {
-        protected WebDriver driver;
+        protected IWebDriver driver;
 
-        public BasePage(WebDriver webDriver)
+        public BasePage()
         {
-            driver = webDriver;
+            driver = Browser.Instance.Driver;
         }
 
         public abstract BasePage OpenPage();
