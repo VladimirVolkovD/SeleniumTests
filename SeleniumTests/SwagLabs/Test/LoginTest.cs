@@ -8,10 +8,24 @@ namespace SeleniumTests.SwagLabs.Test
         [Test]
         public void Login_StandartUser()
         {
-            var page = new LoginPage(driver);
-            page.OpenPage();
-            page.LoginAsStandartUser();
+            var inventoryPage = new LoginPage(driver)
+                .OpenPage()
+                .LoginAsStandartUser();
+        }
 
+        [Test]
+        public void Login()
+        {
+            var user = new UserModel()
+            {
+                Password = "asdasdasd",
+            };
+
+            var page = new LoginPage(driver);
+
+            page.OpenPage().TryToLogin(user);
+
+            page.VerifyErrorMessage();
         }
     }
 }

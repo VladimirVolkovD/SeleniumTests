@@ -18,17 +18,37 @@ namespace SeleniumTests.SwagLabs.PageObject
         {
         }
 
-        public override void OpenPage()
-        {
+        public override LoginPage OpenPage()
+        {          
             driver.Navigate().GoToUrl(url);
+            return this;
         }
 
-        public void LoginAsStandartUser()
+        public InventoryPage LoginAsStandartUser()
         {
-            driver.FindElement(UserNameInput).SendKeys(STANDART_USER_NAME);
-            driver.FindElement(PasswordInput).SendKeys(STANDART_USER_PASSWORD);
+            var user = new UserModel()
+            {
+                Name = STANDART_USER_NAME,
+                Password = STANDART_USER_PASSWORD,
+            };
+
+            TryToLogin(user);
+            driver.FindElement(LoginButton).Click();
+
+            return new InventoryPage(driver);
+        }
+
+        public void TryToLogin(UserModel user)
+        {
+            driver.FindElement(UserNameInput).SendKeys(user.Name);
+            driver.FindElement(PasswordInput).SendKeys(user.Password);
             driver.FindElement(LoginButton).Click();
         }
 
+        internal bool VerifyErrorMessage()
+        {
+            //check display status for ErrorMessage 
+            return false;
+        }
     }
 }

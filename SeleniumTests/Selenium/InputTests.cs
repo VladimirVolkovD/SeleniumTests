@@ -9,11 +9,10 @@ namespace SeleniumTests.Selenium
         public void EnterNumbers()
         {
 
-            driver.FindElement(By.LinkText("Inputs")).Click();
+            driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/upload");
+           
 
-            WaitHelper.WaitElementWithTitle(driver, By.LinkText("Inputs"), "Demo", 25);
-
-            var input = driver.FindElement(By.TagName("input"));
+            var input = driver.FindElement(By.Id("file-submit"));
 
             input.SendKeys("A1B2C3D!");
             input.Clear();
@@ -23,9 +22,7 @@ namespace SeleniumTests.Selenium
             input.SendKeys(Keys.ArrowUp);
 
          
-
-
-            input.SendKeys(Keys.ArrowDown + Keys.ArrowDown + Keys.Enter);
+                  input.SendKeys(Keys.ArrowDown + Keys.ArrowDown + Keys.Enter);
 
             var text = input.GetAttribute("value");
 

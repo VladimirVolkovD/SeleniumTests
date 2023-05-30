@@ -7,8 +7,9 @@ namespace SeleniumTests.SwagLabs.Test
     {
         [SetUp]
         public void SetUp()
-        {           
-            driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+        {    
+            // like option if we don't use OpenPage() method       
+           // driver.Navigate().GoToUrl("https://www.saucedemo.com/");
         }
     }
 }

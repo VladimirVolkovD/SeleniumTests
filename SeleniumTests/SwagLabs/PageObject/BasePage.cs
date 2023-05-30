@@ -11,6 +11,6 @@ namespace SeleniumTests.SwagLabs.PageObject
             driver = webDriver;
         }
 
-        public abstract void OpenPage();
+        public abstract BasePage OpenPage();
     }
 }
