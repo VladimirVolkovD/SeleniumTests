@@ -1,5 +1,5 @@
 ﻿using OpenQA.Selenium;
-using SeleniumTests.Core;
+using SeleniumTests.Core.Selenium;
 
 namespace SeleniumTests.SwagLabs.PageObject
 {

@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using SeleniumTests.Core.Selenium;
+using SeleniumTests.Core.Selenium.Elements;
 
 namespace SeleniumTests.SwagLabs.PageObject
 {
@@ -6,6 +8,7 @@ namespace SeleniumTests.SwagLabs.PageObject
     {
 
         //public LeftMenu LeftMenu;
+        private BaseElement CartLink = new(By.ClassName("shopping_cart_link"));
 
         private By ShoppingCartLink = By.ClassName("shopping_cart_link");
 
@@ -23,6 +26,11 @@ namespace SeleniumTests.SwagLabs.PageObject
             driver.Navigate().GoToUrl(url);
 
             return this;
+        }
+
+        internal void ClickOnCartIcon()
+        {
+            CartLink.GetElement().Click();
         }
 
         //public LoginPAge Logout()

@@ -29,7 +29,6 @@ namespace SeleniumTests.SwagLabs.PageObject
             };
 
             TryToLogin(user);
-            driver.FindElement(LoginButton).Click();
 
             return new InventoryPage();
         }

@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 
-
-namespace SeleniumTests.Core
+namespace SeleniumTests.Core.Selenium
 {
     public class Browser
     {
@@ -30,20 +31,31 @@ namespace SeleniumTests.Core
             //choose browser
             var isHeadless = bool.Parse(TestContext.Parameters.Get("Headless"));
             var wait = int.Parse(TestContext.Parameters.Get("ImplicityWait"));
-            
-            if (isHeadless)
-            {
-                ChromeOptions options = new ChromeOptions();
-                options.AddArgument("--headless");
-                options.AddArgument("--disable-gpu");
-                options.AddArgument("incognito");
-                options.AddArgument("--start-maximized");
 
-                driver = new ChromeDriver(options);
-            }
-            else
+            switch (TestContext.Parameters.Get("BrowseType"))
             {
-                driver = new ChromeDriver();
+                case "Chrome":
+                    if (isHeadless)
+                    {
+                        ChromeOptions options = new ChromeOptions();
+                        options.AddArgument("--headless");
+                        options.AddArgument("--disable-gpu");
+                        options.AddArgument("incognito");
+                        options.AddArgument("--start-maximized");
+
+                        driver = new ChromeDriver(options);
+                    }
+                    else
+                    {
+                        driver = new ChromeDriver();
+                    }
+                    break;
+                case "FireFox":
+                    driver = new FirefoxDriver();
+                    break;
+                default:
+                    driver = new ChromeDriver();
+                    break;
             }
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(wait);
@@ -61,7 +73,7 @@ namespace SeleniumTests.Core
             driver.Navigate().GoToUrl(url);
         }
 
-        public void AcceptAllert() 
+        public void AcceptAllert()
         {
             driver.SwitchTo().Alert().Accept();
         }
@@ -81,14 +93,22 @@ namespace SeleniumTests.Core
             driver.SwitchTo().DefaultContent();
         }
 
+        public void ContextClickToElement(IWebElement element)
+        {
+            new Actions(driver)
+                .ContextClick(element)
+                .Build()
+                .Perform();
+        }
+
         public object ExecuteScript(string scipt, object argument = null)
         {
             try
             {
 
-              return ((IJavaScriptExecutor)driver).ExecuteScript(scipt, argument);
+                return ((IJavaScriptExecutor)driver).ExecuteScript(scipt, argument);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return null;
             }
