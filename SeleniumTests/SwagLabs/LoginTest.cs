@@ -89,7 +89,7 @@ namespace SeleniumTests.SwagLabs.Test
 
         }
 
-        [Test]
+        [Test] 
         public void TestCheckOutNegative211()
         {
             var user = UserBuilder.GetRandomUserWithPassword("QAZ!@W");

@@ -17,5 +17,10 @@ namespace SeleniumTests.Core.Selenium.Elements
             locator = By.XPath(xpath);
         }
 
+        public object ClickElementViaJs()
+        {
+           return Browser.Instance.ExecuteScript("arguments[0].click();", GetElement());
+        }       
+
     }
 }

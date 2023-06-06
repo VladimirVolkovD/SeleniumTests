@@ -1,9 +1,13 @@
-﻿using SeleniumTests.SwagLabs;
+﻿using Bogus;
+using NUnit.Framework;
+using SeleniumTests.SwagLabs;
 
 namespace SeleniumTests.Core
 {
     public class UserBuilder
     {
+        static Faker Faker = new (); 
+
         public static UserModel GetStandartUser()
         {
             return new UserModel
@@ -18,8 +22,8 @@ namespace SeleniumTests.Core
         {
             return new UserModel
             {
-                Name = "vladimirwolkov-zgtj@force.com",
-                Password = "QeeTwXGTVcXw72@",
+                Name = "vladimirvolkov@internetkeno.com",
+                Password = "1qaz@WSX",
             };
 
         }
@@ -39,12 +43,12 @@ namespace SeleniumTests.Core
             return new UserModel
             {
                 Name = Faker.Name.FullName(),
-                Password = Faker.Identification.SocialSecurityNumber(),
+                Password = Faker.Hacker.Verb(),
             };
 
         }
 
-        internal static UserModel GetRandomUserWithPassword(string password) => new()
+        public static UserModel GetRandomUserWithPassword(string password) => new()
         {
             Name = Faker.Name.FullName(),
             Password = password,

@@ -28,6 +28,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\BussinesObject\BussinesObject.csproj" />
+	  <ProjectReference Include="..\Core\Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.qa.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="appsettings.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="TestData\HomeWork.docx">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

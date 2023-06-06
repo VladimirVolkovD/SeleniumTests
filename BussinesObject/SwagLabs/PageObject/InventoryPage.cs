@@ -4,7 +4,7 @@ using SeleniumTests.Core.Selenium.Elements;
 
 namespace SeleniumTests.SwagLabs.PageObject
 {
-    internal class InventoryPage : BasePage
+    public class InventoryPage : BasePage
     {
 
         //public LeftMenu LeftMenu;
@@ -28,7 +28,7 @@ namespace SeleniumTests.SwagLabs.PageObject
             return this;
         }
 
-        internal void ClickOnCartIcon()
+        public void ClickOnCartIcon()
         {
             CartLink.GetElement().Click();
         }

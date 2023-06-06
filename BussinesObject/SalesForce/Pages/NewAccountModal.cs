@@ -7,12 +7,12 @@ namespace SeleniumTests.SalesForce.Pages
     {
         Input accountName = new("Account Name");
         DropDown typeDropDown = new("Type");
-        Button saveButton = new(By.CssSelector("button[title = 'Save']"));
+        Button saveButton = new(By.XPath("//*[@title='Save']//button"));
 
-        internal void CreateAccount(string name, string listOption)
+        public void CreateAccount(string name, string listOption)
         {
             accountName.GetElement().SendKeys(name);
-            typeDropDown.Select("Customer");
+            typeDropDown.Select("Prospect");
             saveButton.GetElement().Click();
         }
     }

@@ -3,7 +3,7 @@ using SeleniumTests.Core.Selenium;
 
 namespace SeleniumTests.SwagLabs.PageObject
 {
-    internal abstract class BasePage
+    public abstract class BasePage
     {
         protected IWebDriver driver;
 

@@ -1,5 +1,4 @@
-﻿
-namespace SeleniumTests.SwagLabs
+﻿namespace SeleniumTests.SwagLabs
 {
     public class UserModel
     {

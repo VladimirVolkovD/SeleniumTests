@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace SeleniumTests.Core.Selenium.Elements
 {
-    internal class DropDown : BaseElement
+    public class DropDown : BaseElement
     {
         public DropDown(By locator) : base(locator)
         {
         }
 
-        public DropDown(string locator) : base($"//span[text()='{locator}']/ancestor::div[contains(@class,'uiInput')]//a")
+        public DropDown(string locator) : base($"//label[text()='{locator}']/following-sibling::div//button")
         {
         }
 
         public void Select(string option)
         {
             WebDriver.FindElement(locator).Click();
-            WebDriver.FindElement(By.CssSelector($"a[title='{option}']")).Click();
+            WebDriver.FindElement(By.XPath($"//*[@title='{option}']")).Click();
         }
 
     }

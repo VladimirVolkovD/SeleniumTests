@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumTests.Core.Selenium.Elements
 {
-    internal class Button : BaseElement
+    public class Button : BaseElement
     {
         public Button(By locator) : base(locator)
         {

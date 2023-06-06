@@ -2,7 +2,7 @@
 
 namespace SeleniumTests.SwagLabs.PageObject
 {
-    internal class LoginPage : BasePage
+    public class LoginPage : BasePage
     {
         private By UserNameInput = By.Id("user-name");
         private By PasswordInput = By.XPath("//*[@data-test='password']");
@@ -40,7 +40,7 @@ namespace SeleniumTests.SwagLabs.PageObject
             driver.FindElement(LoginButton).Click();
         }
 
-        internal bool VerifyErrorMessage()
+        public bool VerifyErrorMessage()
         {
             //check display status for ErrorMessage 
             return false;
