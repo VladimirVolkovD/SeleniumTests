@@ -6,13 +6,34 @@
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
 		<IsTestProject>true</IsTestProject>
+		<Configurations>Debug;Release;Prod</Configurations>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="allureConfig.json" />
+	  <None Remove="appsettings.json" />
+	  <None Remove="NLog.config" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="allureConfig.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="appsettings.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="NLog.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Bogus" Version="34.0.2" />
 		<PackageReference Include="Faker.Net" Version="2.0.154" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+		<PackageReference Include="NLog" Version="5.2.0" />
 		<PackageReference Include="NUnit" Version="3.13.3" />
+		<PackageReference Include="NUnit.Allure" Version="1.2.1.1" />
 		<PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
 		<PackageReference Include="NUnit.Analyzers" Version="3.6.1">
 			<PrivateAssets>all</PrivateAssets>
@@ -33,15 +54,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="appsettings.qa.json">
+		<None Update="appsettings.Prod.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="appsettings.json">
+		<None Update="appsettings.qa.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="TestData\HomeWork.docx">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<!--<None Include="appsettings.$(Configuration).json">
+			<Link>appsettings.custom.json</Link>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>-->
 	</ItemGroup>
 
 </Project>

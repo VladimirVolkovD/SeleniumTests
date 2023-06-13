@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using Allure.Commons;
+using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 using SeleniumTests.Core;
 using SeleniumTests.Core.Selenium;
 using SeleniumTests.SwagLabs.PageObject;
@@ -17,7 +19,16 @@ namespace SeleniumTests.SwagLabs.Test
                .ClickOnCartIcon();
         }
 
-        [Test]
+        [Test(Description = "Failed due to wrong url parameters")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureTag("Smoke")]
+        [Description("More detailed Description")]
+        [AllureOwner("Vladimir")]
+        [AllureSuite("SwagLabs")]
+        [AllureSubSuite("SwagLabs - failed")]
+        [AllureTms("TMS-16")]
+        [AllureIssue("JIRA-14")]
+        [AllureLink("https://google.com")]
         public void Login_StandartUser()
         {
 
@@ -48,7 +59,7 @@ namespace SeleniumTests.SwagLabs.Test
             };
 
             var page = new LoginPage();
-
+            
             page.OpenPage().TryToLogin(user);
 
             page.VerifyErrorMessage();

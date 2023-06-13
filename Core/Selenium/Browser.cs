@@ -1,72 +1,39 @@
-﻿using NUnit.Framework;
+﻿using Core.Configuration;
+using Core.Selenium;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 
 namespace SeleniumTests.Core.Selenium
 {
     public class Browser
     {
-        private static Browser instance = null;
+        private static readonly ThreadLocal<Browser> BrowserInstances = new();
+        public static Browser Instance => GetBrowser();
         private IWebDriver driver;
-        public IWebDriver Driver { get { return driver; } }
+        public IWebDriver? Driver { get { return driver; } }
 
-
-
-        public static Browser Instance
+        private static Browser GetBrowser()
         {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new Browser();
-                }
-
-                return instance;
-            }
+            return BrowserInstances.Value ?? (BrowserInstances.Value = new Browser());
         }
 
         private Browser()
         {
-            //choose browser
-            var isHeadless = bool.Parse(TestContext.Parameters.Get("Headless"));
-            var wait = int.Parse(TestContext.Parameters.Get("ImplicityWait"));
-
-            switch (TestContext.Parameters.Get("BrowseType"))
+            driver = AppConfiguration.Browser.Type.ToLower() switch
             {
-                case "Chrome":
-                    if (isHeadless)
-                    {
-                        ChromeOptions options = new ChromeOptions();
-                        options.AddArgument("--headless");
-                        options.AddArgument("--disable-gpu");
-                        options.AddArgument("incognito");
-                        options.AddArgument("--start-maximized");
+                "chrome" => DriverFactory.GetChromeDriver(),
+                "firefox" => DriverFactory.GetFirefoxDriver(),
+                _ => DriverFactory.GetChromeDriver()
+            };
 
-                        driver = new ChromeDriver(options);
-                    }
-                    else
-                    {
-                        driver = new ChromeDriver();
-                    }
-                    break;
-                case "FireFox":
-                    driver = new FirefoxDriver();
-                    break;
-                default:
-                    driver = new ChromeDriver();
-                    break;
-            }
-
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(wait);
-            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(AppConfiguration.Browser.TimeOut);
+            driver.Manage().Window.Maximize();                       
         }
 
         public void CloseBrowser()
         {
             driver?.Dispose();
-            instance = null;
+            BrowserInstances.Value = null;
         }
 
         public void NavigateToUrl(string url)
@@ -101,8 +68,6 @@ namespace SeleniumTests.Core.Selenium
                 .Build()
                 .Perform();
         }
-
-
 
         public object ExecuteScript(string scipt, object argument = null)
         {
