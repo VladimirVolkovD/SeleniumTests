@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any
 
@@ -23,7 +21,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'dotnet test  --filter Name=${testName}'
+                bat 'dotnet test  --filter Name=${params.testName}'
             }
             post {
                 always {
