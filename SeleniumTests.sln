@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BussinesObject", "BussinesObject\BussinesObject.csproj", "{F638D330-4CEF-45B8-8AC1-C02C2498C866}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{278B8B22-FC4D-4093-A983-C5B7D26304CA}"
+	ProjectSection(SolutionItems) = preProject
+		jenkinsfile = jenkinsfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
