@@ -3,18 +3,42 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTests", "SeleniumTests\SeleniumTests.csproj", "{EA0CD302-564D-4820-AF48-BCE3F322E518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumTests", "SeleniumTests\SeleniumTests.csproj", "{EA0CD302-564D-4820-AF48-BCE3F322E518}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{C76D7D23-E8D7-4687-A688-61F0D0D19D94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BussinesObject", "BussinesObject\BussinesObject.csproj", "{F638D330-4CEF-45B8-8AC1-C02C2498C866}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{278B8B22-FC4D-4093-A983-C5B7D26304CA}"
+	ProjectSection(SolutionItems) = preProject
+		jenkinsfile = jenkinsfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Prod|Any CPU = Prod|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Prod|Any CPU.Build.0 = Prod|Any CPU
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

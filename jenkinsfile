@@ -1,0 +1,40 @@
+
+
+pipeline {
+    agent any
+    
+  parameters {
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'Configuration', name: 'Branch', type: 'PT_BRANCH'
+  }
+
+    stages {
+        stage('Checkout') {
+            steps {
+               git branch: "${params.Branch}", url: 'https://github.com/VladimirVolkovD/SeleniumTests.git'
+            }
+        }
+
+        stage('Restore Packages') {
+            steps {
+                bat 'dotnet restore'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'dotnet build --configuration Debug'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'dotnet test'
+            }
+            post {
+                always {
+                    allure includeProperties: false, jdk: '', results: [[path: 'SeleniumTests\\bin\\Debug\\net7.0\\allure-results']]
+                }
+            }
+        }
+    }
+}
