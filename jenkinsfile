@@ -3,17 +3,7 @@
 pipeline {
     agent any
     
-  parameters {
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'Configuration', name: 'Branch', type: 'PT_BRANCH'
-  }
-
-    stages {
-        stage('Checkout') {
-            steps {
-               git branch: "${params.Branch}", url: 'https://github.com/VladimirVolkovD/SeleniumTests.git'
-            }
-        }
-
+  
         stage('Restore Packages') {
             steps {
                 bat 'dotnet restore'
