@@ -2,7 +2,10 @@ pipeline {
     agent any
 
  parameters {
-        string(name: 'testName', defaultValue: '', description: 'Specify the test name')
+        string(
+        name: 'TestName', 
+        defaultValue: '',
+        description: 'Specify the test name')
     }
 
     
@@ -21,7 +24,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'dotnet test  --filter Name=${params.testName}'
+                bat "dotnet test  --filter Name=${TestName}"
             }
             post {
                 always {
