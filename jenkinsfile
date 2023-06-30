@@ -3,13 +3,20 @@ pipeline {
 
  parameters {
         string(
-        name: 'TestName', 
+        name: 'TestFilter', 
         defaultValue: '',
-        description: 'Specify the test name')
-    }
+        description: """--filter "FullyQualifiedName~YourNamespace.YourTestClass.YourTestMethod
+        --filter "Name=YourTestMethod""")
 
-    
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'Configuration', name: 'Branch', type: 'PT_BRANCH'
+  }
+
     stages {
+        stage('Checkout') {
+            steps {
+               git branch: "${Branch}", url: 'https://github.com/VladimirVolkovD/SeleniumTests.git'
+            }
+        }
         stage('Restore Packages') {
             steps {
                 bat 'dotnet restore'
@@ -24,7 +31,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat "dotnet test  --filter Name=${TestName}"
+                bat "dotnet test ${TestFilter}"
             }
             post {
                 always {
