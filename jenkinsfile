@@ -5,10 +5,10 @@ pipeline {
         string(
         name: 'TestFilter', 
         defaultValue: '',
-        description: """--filter "FullyQualifiedName~YourNamespace.YourTestClass.YourTestMethod
-        --filter "Name=YourTestMethod""")
-
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'Configuration', name: 'Branch', type: 'PT_BRANCH'
+        description: """ --filter 'FullyQualifiedName~YourNamespace.YourTestClass.YourTestMethod'
+--filter 'Name=YourTestMethod'""")
+    choice(name: 'ProjectConfiguration', choices:['Debug','Realese','Prod'])
+    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'Branch', type: 'PT_BRANCH'
   }
 
     stages {
@@ -17,15 +17,10 @@ pipeline {
                git branch: "${Branch}", url: 'https://github.com/VladimirVolkovD/SeleniumTests.git'
             }
         }
-        stage('Restore Packages') {
-            steps {
-                bat 'dotnet restore'
-            }
-        }
 
         stage('Build') {
             steps {
-                bat 'dotnet build --configuration Debug'
+                bat "dotnet build --configuration ${ProjectConfiguration}"
             }
         }
 
@@ -41,4 +36,3 @@ pipeline {
         }
     }
 }
-
