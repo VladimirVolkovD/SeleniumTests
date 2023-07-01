@@ -1,8 +1,6 @@
 ﻿Feature: SaleForce
 
 
-
-@tag1
 Scenario: CreateAccount
 	Given Login to the sale force like standart user
     * Navigate to create new account page

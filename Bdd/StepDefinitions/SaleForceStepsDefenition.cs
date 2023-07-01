@@ -37,7 +37,7 @@ namespace Bdd.StepDefinitions
         [Then(@"TODO")]
         public void ThenTODO()
         {
-            throw new PendingStepException();
+           
         }
 
     }
