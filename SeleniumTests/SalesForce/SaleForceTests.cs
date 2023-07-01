@@ -18,6 +18,7 @@ namespace SeleniumTests.SalesForce
         }
 
         [Test]
+        [Category("Create")]
         public void CreateContact()
         {
             var user = UserBuilder.GetSalesForceUser();
