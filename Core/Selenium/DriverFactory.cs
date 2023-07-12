@@ -1,13 +1,9 @@
 ﻿using Core.Configuration;
+using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using SeleniumTests.Core.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Selenium
 {
@@ -17,7 +13,13 @@ namespace Core.Selenium
         {
             ChromeOptions options = new ChromeOptions();
 
-            if(AppConfiguration.Browser.Hedless) options.AddArgument("--headless");
+
+            var headless = ConfigurationFromFile.GetHeadlessParametr();
+            
+            var param = (int) ConfigurationFromFile.GetParametr(".Browser.Hedless");
+
+
+            if (AppConfiguration.Browser.Hedless) options.AddArgument("--headless");
             options.AddArgument("--disable-gpu");
             options.AddArgument("incognito");
             options.AddArgument("--start-maximized");

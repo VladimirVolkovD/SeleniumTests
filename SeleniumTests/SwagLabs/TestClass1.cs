@@ -12,7 +12,8 @@ namespace SeleniumTests.SwagLabs
         [Test]
         public void test1()
         {
-            var t = AppConfiguration.Browser.Hedless;
+            var env = Environment.GetEnvironmentVariable("Browser");
+
         }
     }
 }

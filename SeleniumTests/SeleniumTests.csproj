@@ -6,13 +6,16 @@
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
 		<IsTestProject>true</IsTestProject>
-		<Configurations>Debug;Release;Prod</Configurations>
+		<Configurations>Debug;Release;Prod;SuperPuperEnv</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>
 	  <None Remove="allureConfig.json" />
 	  <None Remove="appsettings.json" />
 	  <None Remove="NLog.config" />
+	  <None Remove="runsettings\Dev.runsettings" />
+	  <None Remove="runsettings\PreProd.runsettings" />
+	  <None Remove="runsettings\Qa.runsettings" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -23,6 +26,15 @@
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	  <Content Include="NLog.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="runsettings\Dev.runsettings">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="runsettings\PreProd.runsettings">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="runsettings\Qa.runsettings">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
@@ -51,9 +63,13 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\BussinesObject\BussinesObject.csproj" />
 	  <ProjectReference Include="..\Core\Core.csproj" />
+	  <ProjectReference Include="..\DataBase\DataBase.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="appsettings.SuperPuperEnv.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="appsettings.Prod.json">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
@@ -63,10 +79,10 @@
 		<None Update="TestData\HomeWork.docx">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<!--<None Include="appsettings.$(Configuration).json">
+		<None Include="appsettings.$(Configuration).json">
 			<Link>appsettings.custom.json</Link>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>-->
+		</None>
 	</ItemGroup>
 
 </Project>

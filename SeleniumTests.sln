@@ -14,11 +14,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		jenkinsfile = jenkinsfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Prod|Any CPU = Prod|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SuperPuperEnv|Any CPU = SuperPuperEnv|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -27,18 +30,32 @@ Global
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Prod|Any CPU.Build.0 = Prod|Any CPU
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA0CD302-564D-4820-AF48-BCE3F322E518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA0CD302-564D-4820-AF48-BCE3F322E518}.SuperPuperEnv|Any CPU.ActiveCfg = SuperPuperEnv|Any CPU
+		{EA0CD302-564D-4820-AF48-BCE3F322E518}.SuperPuperEnv|Any CPU.Build.0 = SuperPuperEnv|Any CPU
 		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
 		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Prod|Any CPU.Build.0 = Prod|Any CPU
 		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.SuperPuperEnv|Any CPU.ActiveCfg = SuperPuperEnv|Any CPU
+		{C76D7D23-E8D7-4687-A688-61F0D0D19D94}.SuperPuperEnv|Any CPU.Build.0 = SuperPuperEnv|Any CPU
 		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
 		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Prod|Any CPU.Build.0 = Prod|Any CPU
 		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.SuperPuperEnv|Any CPU.ActiveCfg = SuperPuperEnv|Any CPU
+		{F638D330-4CEF-45B8-8AC1-C02C2498C866}.SuperPuperEnv|Any CPU.Build.0 = SuperPuperEnv|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.Prod|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.Prod|Any CPU.Build.0 = Debug|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.SuperPuperEnv|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F56C99-448D-40D5-A8B4-9C82612C0DD6}.SuperPuperEnv|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
