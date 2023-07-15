@@ -26,12 +26,11 @@ namespace SeleniumTests
             DatabaseUtils.PrintQueryResults(students);
         }
 
-
         [Test]
         [Order(0)]
         public void CreatNewStudent()
         {
-            Student newStudent = new Student { Name = "dbuser", group_Id = 1 };
+            Student newStudent = new Student { Name = "dbuser_AT_DeleteUser_After_Test", group_Id = 1 };
             studentTable.CreatNewStudent(newStudent);
         }
 
