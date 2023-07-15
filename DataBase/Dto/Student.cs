@@ -1,15 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Dapper.Contrib.Extensions;
 
 namespace DataBase.Dto
 {
-    [Table("student")]
-    public class Student
+    [Table("students")]
+    public class Student : BaseModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        [Column("group_id")]
-        public int? group_id { get; set; }
+        public int? group_Id { get; set; }             
     }
 }
